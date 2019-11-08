@@ -64,6 +64,7 @@ function display(stack) {
   return currNode.data;
 }
 
+// is_palindrome is O(n)
 function is_palindrome(s) {
   s = s.toLowerCase().replace(/[^a-zA-Z0-9]/g, "");
   let cumulator = new Stack();
@@ -78,11 +79,31 @@ function is_palindrome(s) {
   }
 }
 
-console.log(is_palindrome("dad"));
+function parenthCheck(s) {
+  let cumulator = new Stack();
+  let parenthCheck = null;
+
+  for (let i = 0; i < s.length; i++)
+    cumulator.push(s[i]); // b( ( ) )t
+
+  for (let i = 0; i < s.length; i++) {
+    if ((s[i] === '(' && cumulator.pop() === ')') || (s[i] === ')' && cumulator.pop() === '('))
+      parenthCheck = true;
+    else 
+      return `Parentheses missing at position ${i + 1} ${s[i]}`; 
+  }
+  return parenthCheck;
+};
+
+console.log(parenthCheck('(())'));
+console.log(parenthCheck('(((()))))'));
+console.log(parenthCheck('(()'));
+console.log(parenthCheck('(()'));
+
+/* console.log(is_palindrome("dad"));
 console.log(is_palindrome("A man, a plan, a canal: Panama"));
 console.log(is_palindrome("1001"));
-console.log(is_palindrome("Tauhida"));
-console.log(is_palindrome('catac'));
+console.log(is_palindrome("Tauhida")); */
 
 function main() {
   const starTrek = new Stack();
