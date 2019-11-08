@@ -41,7 +41,7 @@ function peek(stack) {
     console.log('Stack is empty');
     return;
   }
-  return stack.top;
+  return stack.top.data;
 }
 
 function isEmpty(stack) {
@@ -99,15 +99,21 @@ function sortStack(stack) {
   let sortedStack = new Stack();
 
   while(!isEmpty(stack)) {
+    let tempVal = stack.pop();
 
-  };
-  return sortStack;
+    while(!isEmpty(sortedStack) && (peek(sortedStack) < tempVal)){
+      stack.push(sortedStack.pop());
+    }
+    sortedStack.push(tempVal);
+  }
+  return sortedStack;
 }
 
-console.log(parenthCheck('(())'));
-console.log(parenthCheck('(((()))))'));
-console.log(parenthCheck('(()'));
-console.log(parenthCheck('(()'));
+
+// console.log(parenthCheck('(())'));
+// console.log(parenthCheck('(((()))))'));
+// console.log(parenthCheck('(()'));
+// console.log(parenthCheck('(()'));
 
 /* console.log(is_palindrome("dad"));
 console.log(is_palindrome("A man, a plan, a canal: Panama"));
@@ -117,18 +123,22 @@ console.log(is_palindrome("Tauhida")); */
 function main() {
   const starTrek = new Stack();
 
-  starTrek.push('Kirk');
-  starTrek.push('Spock');
-  starTrek.push('McCoy');
-  starTrek.push('Scotty');
+  // starTrek.push('Kirk');
+  // starTrek.push('Spock');
+  // starTrek.push('McCoy');
+  // starTrek.push('Scotty');
+  starTrek.push(1);
+  starTrek.push(3);
+  starTrek.push(2);
 
   // peek(starTrek);
   // isEmpty(starTrek);
-  starTrek.pop();
-  starTrek.pop();
+  // starTrek.pop();
+  // starTrek.pop();
 
-  return display(starTrek);
+  return starTrek;
+  
 }
 // console.log(JSON.stringify(main()));
-// console.log(main());
-
+console.log(display(sortStack(main())));
+// console.log(sortStack(main()));
