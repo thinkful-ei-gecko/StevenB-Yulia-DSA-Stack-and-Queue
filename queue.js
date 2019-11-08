@@ -39,43 +39,45 @@ class Queue {
   }
 }
 
-function peek(queue) {
-  if (queue.first === null) {
-    return 'Queue is empty';
-  }
-  return queue.first.value;
-}
+module.exports = Queue;
 
-function isEmpty(queue) {
-  if (queue.first === null) {
-    return true;
-  }
-  return false;
-}
+// function peek(queue) {
+//   if (queue.first === null) {
+//     return 'Queue is empty';
+//   }
+//   return queue.first.value;
+// }
 
-function display(queue) {
-  if (queue.first === null) {
-    return 'Queue is empty';
-  }
-  let currNode = queue.first;
-  while(currNode.next !== null) {
-    console.log(currNode.value);
-    currNode = currNode.next;
-  }
-  return currNode.value;
-}
+// function isEmpty(queue) {
+//   if (queue.first === null) {
+//     return true;
+//   }
+//   return false;
+// }
 
-function main() {
-  const starTrekQ = new Queue();
-  starTrekQ.enqueue('Kirk');
-  starTrekQ.enqueue('Spock');
-  starTrekQ.enqueue('Uhura');
-  starTrekQ.enqueue('Sulu');
-  starTrekQ.enqueue('Checkov');
-  starTrekQ.dequeue();
-  starTrekQ.dequeue();
-  return starTrekQ;
-}
+// function display(queue) {
+//   if (queue.first === null) {
+//     return 'Queue is empty';
+//   }
+//   let currNode = queue.first;
+//   while(currNode.next !== null) {
+//     console.log(currNode.value);
+//     currNode = currNode.next;
+//   }
+//   return currNode.value;
+// }
 
-console.log(display(main()));
-// console.log(peek(main()));
+// function main() {
+//   const starTrekQ = new Queue();
+//   starTrekQ.enqueue('Kirk');
+//   starTrekQ.enqueue('Spock');
+//   starTrekQ.enqueue('Uhura');
+//   starTrekQ.enqueue('Sulu');
+//   starTrekQ.enqueue('Checkov');
+//   starTrekQ.dequeue();
+//   starTrekQ.dequeue();
+//   return starTrekQ;
+// }
+
+// console.log(display(main()));
+// // console.log(peek(main()));
