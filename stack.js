@@ -95,6 +95,15 @@ function parenthCheck(s) {
   return parenthCheck;
 };
 
+function sortStack(stack) {
+  let sortedStack = new Stack();
+
+  while(!isEmpty(stack)) {
+
+  };
+  return sortStack;
+}
+
 console.log(parenthCheck('(())'));
 console.log(parenthCheck('(((()))))'));
 console.log(parenthCheck('(()'));
